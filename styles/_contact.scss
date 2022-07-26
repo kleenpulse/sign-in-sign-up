@@ -1,0 +1,293 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100vh - 70px);
+    width: 100% !important;
+    overflow: hidden;
+    user-select: none;
+   
+}
+
+.first-half {
+    background: rgba(0, 0, 0, 0.512);
+    background-image: url(../images/macbook.jpg);
+    font-family: 'work sans', sans-serif;
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+    background-size: contain;
+    background-position: left center;
+    flex: 2.5;
+    color: var(--grey0);
+
+    .confirst {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 2rem;
+        padding-top: 50%;
+        height: 100%;
+        backdrop-filter: blur(10px);
+
+        h2 {
+            margin-bottom: 2rem;
+            font-size: calc(20vw * .2);
+        }
+
+        p {
+            font-size: calc(15vw * .156);
+            text-align: center;
+            font-weight: 500;
+        }
+    }
+}
+
+.second-half {
+    flex: 3;
+    font-family: poppins, sans-serif;
+    overflow-y: auto;
+
+    .title {
+        text-align: left;
+        margin-left: 2rem;
+        margin-top: 4rem;
+        margin-bottom: 3rem;
+        color: var(--darkcyan);
+        font-size: calc(10vw * .14);
+    }
+
+    .consecond {
+        padding: 0 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .alt-signin {
+            display: flex;
+            justify-content: center;
+
+            .button {
+                background: none;
+                outline: none;
+                border: 1px solid var(--grey2);
+                padding: .71rem 2rem;
+                border-radius: 12px;
+                display: flex;
+                width: 50%;
+                align-items: center;
+                transition: var(--transi);
+                cursor: pointer;
+
+                &:hover {
+                    opacity: .8;
+                }
+
+                img {
+                    height: 30px;
+                    margin-right: 15px;
+                }
+
+                span {
+                    font-weight: 500;
+                }
+
+                &:nth-child(1) {
+                    margin-right: 2rem;
+                }
+            }
+        }
+
+        // OR separator
+        .separator {
+            display: flex;
+            justify-content: center;
+            margin: 3em 0;
+            color: var(--grey3);
+            position: relative;
+
+            &::before {
+                content: '';
+                background: var(--grey2);
+                height: 2px;
+                width: 47%;
+                position: absolute;
+                left: 0;
+                top: 10px;
+            }
+
+            &::after {
+                content: '';
+                background: var(--grey2);
+                height: 2px;
+                width: 47%;
+                position: absolute;
+                right: 0;
+                top: 10px;
+            }
+        }
+
+    }
+
+    @media (max-width:1248px) {
+        transition: var(--transi);
+
+        .consecond {
+
+            .alt-signin {
+                .button {
+                    padding: .71rem 1rem;
+                    font-size: 13px;
+                    
+                }
+            }
+        }
+
+    }
+}
+
+// =====FORM=====
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+        width: 100%;
+        font-weight: 500;
+
+
+        label {
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        input {
+            font-weight: 600;
+            width: calc(100% - 2rem);
+            padding: 1rem;
+            border: 1px solid var(--grey2);
+            background: var(--grey1);
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            transition: var(--transi);
+
+            &::placeholder {
+                color: var(--placeholder);
+            }
+
+            &:focus:valid {
+                border: 1px solid var(--green);
+            }
+
+            &:valid {
+                border: 1px solid var(--green);
+
+                &::after {
+                    content: "✔";
+                    position: absolute;
+                    right: 0;
+                    font-size: 2rem;
+                }
+            }
+
+            &:focus:invalid:not(:placeholder-shown) {
+                border: 1px solid red;
+            }
+
+        }
+    }
+}
+
+label[for="password"] {
+    position: relative;
+}
+
+#password {
+    margin-top: 1rem;
+}
+
+#visible {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    color: var(--darkcyan);
+    cursor: pointer;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 4rem;
+
+    .submit {
+        background: var(--cyan1);
+        border: none;
+        color: var(--grey0);
+        border-radius: 15px;
+        padding: 1rem 0;
+        width: 90%;
+        margin-bottom: 3rem;
+        cursor: pointer;
+        transition: var(--transi);
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    p {
+        margin-bottom: 2rem;
+        color: var(--grey2);
+        font-weight: 500;
+
+        a {
+            color: var(--darkcyan);
+        }
+    }
+}
+
+// Validate Password
+/* The message box is shown when the user clicks on the password field */
+#message {
+    display: none;
+    font-family: 'work sans';
+    letter-spacing: 1.2px;
+    color: #fff;
+    border-radius: 30px;
+    background: var(--darkcyan);
+    box-shadow: 5px 5px 10px #616161,
+        -5px -5px 10px #ffffff;
+    position: relative;
+    transition: var(--transi);
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#message p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: var(--green);
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+}

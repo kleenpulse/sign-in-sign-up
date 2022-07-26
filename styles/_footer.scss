@@ -1,0 +1,12 @@
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: var(--label);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--underline-2);
+    border-radius: 10px;
+}

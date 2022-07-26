@@ -1,0 +1,632 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Work+Sans:wght@400;600;700&display=swap");
+*,
+:root {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  --transi: all 400ms;
+}
+
+.light {
+  --bg: var(--grey0);
+  --bg-nav:var(--card-hover);
+  --bg-dropdown: var(--greyDropdown);
+  --text: var(--grey6);
+  --border-color: var(--blue);
+  --bg-solar: var(--yellow);
+  --label: var(--grey0);
+  --underline:linear-gradient(90deg, var(--grey3), var(--grey4), var(--grey2));
+  --card-hover: linear-gradient(40deg, var(--cyan), var(--blue), var(--green));
+  --bgEffectBottom:transparent;
+  --underline-2: linear-gradient(40deg, var(--grey2), var(--grey1));
+  --placeholder: var(--grey2);
+  --everything: var(--grey0);
+  --event: all;
+}
+
+.dark {
+  --bgEffectTop: var(--cyan);
+  --event: none;
+  --everything: transparent;
+  --label: var(--grey5);
+  --bg: var(--grey6);
+  --bg-nav: var(--greyDropdownDark);
+  --bg-dropdown: var(--greyDropdownDark);
+  --text: var(--grey0);
+  --border-color: var(--purple);
+  --bg-solar: var(--blue);
+  --underline: linear-gradient(90deg, var(--cyan), var(--purple));
+  --card-hover: var(--underline);
+  --bgEffectBottom: var(--purple);
+  --underline-2: linear-gradient(40deg, var(--cyan), var(--purple));
+}
+
+.solar {
+  --grey0: #f8ebdb;
+  --grey1: #f3dcc1;
+  --grey2: #f1bc94;
+  --grey3: #312f2e;
+  --grey4: #f08452;
+  --grey5: #2a2929;
+  --grey6: #12181b;
+  --blue: #1671c6;
+  --purple: #a8138b;
+  --yellow: #ffde0b;
+}
+
+@keyframes color-rotate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+.logo {
+  margin-top: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  pointer-events: all;
+}
+.logo:where(:hover, :active) {
+  animation: color-rotate 1s ease infinite;
+  animation-direction: alternate;
+}
+
+body {
+  --grey0: #e0e0e0;
+  --greyDropdown: #f8f8f824;
+  --greyDropdownDark: #00000024;
+  --grey1: #c8daee2d;
+  --grey2: #b8b9ba;
+  --grey3: #6c7178;
+  --grey4: #454545;
+  --grey5: #2a292963;
+  --grey6: #12181b;
+  --blue: #1671c6;
+  --green: #01ffa6;
+  --purple: #ff00cc;
+  --cyan: #0ff;
+  --cyan1: #059292;
+  --darkcyan: #025d5d;
+  --yellow: #ffde0b;
+  --gradient: linear-gradient(90deg, var(--grey6), var(--grey3));
+  background: var(--bg);
+  color: var(--text);
+  font-family: "lato";
+  transition: background 400ms ease-in-out, color 800ms ease-in-out;
+  overflow: hidden;
+  user-select: none;
+  min-width: 900px;
+}
+body::before {
+  content: "";
+  position: fixed;
+  height: 200px;
+  width: 200px;
+  background: var(--bgEffectTop);
+  filter: blur(140px);
+  z-index: -1;
+}
+body::after {
+  content: "";
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  height: 200px;
+  width: 300px;
+  background: var(--bgEffectBottom);
+  filter: blur(140px);
+  z-index: -1;
+}
+@media (max-width: 900px) {
+  body {
+    overflow: scroll;
+  }
+}
+
+canvas {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.everything {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  pointer-events: var(--event);
+  background: var(--everything);
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.header .head h1 {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 2.1vw;
+  background: var(--underline);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: var(--trans-box);
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 4.6vw;
+  }
+}
+@media (max-width: 400px) {
+  h1 {
+    font-size: 4.7vw !important;
+  }
+}
+@media (max-width: 950px) {
+  h1 {
+    font-size: 4vw;
+  }
+}
+main {
+  display: flex;
+  justify-content: center;
+  padding: 0 5rem;
+}
+
+.title {
+  position: relative;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  height: calc(100vh - 70px);
+  width: 100% !important;
+  overflow: hidden;
+  user-select: none;
+}
+
+.first-half {
+  background: rgba(0, 0, 0, 0.512);
+  background-image: url(../images/macbook.jpg);
+  font-family: "work sans", sans-serif;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  background-size: contain;
+  background-position: left center;
+  flex: 2.5;
+  color: var(--grey0);
+}
+.first-half .confirst {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+  padding-top: 50%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+}
+.first-half .confirst h2 {
+  margin-bottom: 2rem;
+  font-size: 4vw;
+}
+.first-half .confirst p {
+  font-size: 2.34vw;
+  text-align: center;
+  font-weight: 500;
+}
+
+.second-half {
+  flex: 3;
+  font-family: poppins, sans-serif;
+  overflow-y: auto;
+}
+.second-half .title {
+  text-align: left;
+  margin-left: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+  color: var(--darkcyan);
+  font-size: 1.4vw;
+}
+.second-half .consecond {
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.second-half .consecond .alt-signin {
+  display: flex;
+  justify-content: center;
+}
+.second-half .consecond .alt-signin .button {
+  background: none;
+  outline: none;
+  border: 1px solid var(--grey2);
+  padding: 0.71rem 2rem;
+  border-radius: 12px;
+  display: flex;
+  width: 50%;
+  align-items: center;
+  transition: var(--transi);
+  cursor: pointer;
+}
+.second-half .consecond .alt-signin .button:hover {
+  opacity: 0.8;
+}
+.second-half .consecond .alt-signin .button img {
+  height: 30px;
+  margin-right: 15px;
+}
+.second-half .consecond .alt-signin .button span {
+  font-weight: 500;
+}
+.second-half .consecond .alt-signin .button:nth-child(1) {
+  margin-right: 2rem;
+}
+.second-half .consecond .separator {
+  display: flex;
+  justify-content: center;
+  margin: 3em 0;
+  color: var(--grey3);
+  position: relative;
+}
+.second-half .consecond .separator::before {
+  content: "";
+  background: var(--grey2);
+  height: 2px;
+  width: 47%;
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+.second-half .consecond .separator::after {
+  content: "";
+  background: var(--grey2);
+  height: 2px;
+  width: 47%;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+@media (max-width: 1248px) {
+  .second-half {
+    transition: var(--transi);
+  }
+  .second-half .consecond .alt-signin .button {
+    padding: 0.71rem 1rem;
+    font-size: 13px;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form form {
+  width: 100%;
+  font-weight: 500;
+}
+.form form label {
+  display: block;
+  margin-bottom: 1rem;
+}
+.form form input {
+  font-weight: 600;
+  width: calc(100% - 2rem);
+  padding: 1rem;
+  border: 1px solid var(--grey2);
+  background: var(--grey1);
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  transition: var(--transi);
+}
+.form form input::placeholder {
+  color: var(--placeholder);
+}
+.form form input:focus:valid {
+  border: 1px solid var(--green);
+}
+.form form input:valid {
+  border: 1px solid var(--green);
+}
+.form form input:valid::after {
+  content: "✔";
+  position: absolute;
+  right: 0;
+  font-size: 2rem;
+}
+.form form input:focus:invalid:not(:placeholder-shown) {
+  border: 1px solid red;
+}
+
+label[for=password] {
+  position: relative;
+}
+
+#password {
+  margin-top: 1rem;
+}
+
+#visible {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  color: var(--darkcyan);
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 4rem;
+}
+.btn .submit {
+  background: var(--cyan1);
+  border: none;
+  color: var(--grey0);
+  border-radius: 15px;
+  padding: 1rem 0;
+  width: 90%;
+  margin-bottom: 3rem;
+  cursor: pointer;
+  transition: var(--transi);
+}
+.btn .submit:hover {
+  opacity: 0.8;
+}
+.btn p {
+  margin-bottom: 2rem;
+  color: var(--grey2);
+  font-weight: 500;
+}
+.btn p a {
+  color: var(--darkcyan);
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display: none;
+  font-family: "work sans";
+  letter-spacing: 1.2px;
+  color: #fff;
+  border-radius: 30px;
+  background: var(--darkcyan);
+  box-shadow: 5px 5px 10px #616161, -5px -5px 10px #ffffff;
+  position: relative;
+  transition: var(--transi);
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: var(--green);
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+}
+
+.navbar {
+  height: 70px;
+  width: 100%;
+  pointer-events: all;
+  position: sticky;
+}
+.navbar .navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+ul li {
+  font-size: 3vw;
+  margin-top: 10px;
+  text-transform: uppercase;
+  background: var(--card-hover);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  border-radius: 6px;
+  box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff;
+  padding: 3px 7px;
+  border-radius: 10px;
+  transition: var(--transi);
+}
+@media (min-width: 1300px) {
+  ul li {
+    font-size: 2.25vw;
+  }
+}
+
+header {
+  padding: 1em;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 1em;
+  padding-bottom: 3em;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  color: #6f7271;
+}
+header p {
+  background: var(--card-hover);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 2rem;
+  filter: brightness(120%);
+}
+
+.header {
+  margin-top: 5rem;
+}
+
+.light .header {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+}
+.light header {
+  border-radius: 52px;
+  box-shadow: 40px 40px 59px #848484, -40px -40px 59px #ffffff;
+  margin-bottom: 2rem;
+  color: #03165b;
+}
+
+.dropdown {
+  position: absolute;
+  width: 500px;
+  z-index: 2;
+  background: var(--bg-dropdown);
+  border-top: 2px solid var(--border-color);
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  opacity: 0;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transform: translateX(-40%);
+  backdrop-filter: blur(6px);
+  transition: opacity 0.15s ease-out;
+}
+
+.has-dropdown {
+  pointer-events: all;
+}
+.has-dropdown ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.has-dropdown:focus-within .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-item a {
+  width: 100%;
+  height: 100%;
+  size: 0.7rem;
+  padding: 10px;
+  font-weight: 500;
+}
+.dropdown-item a::before {
+  content: "";
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+#light,
+#dark,
+#solar {
+  font-size: 18px;
+}
+
+#light::before {
+  content: "";
+  background: var(--grey0);
+}
+
+#dark::before {
+  content: "";
+  background: var(--grey6);
+}
+
+#solar::before {
+  content: "";
+  background: #f3d495;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: var(--label);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--underline-2);
+  border-radius: 10px;
+}
+
+.title {
+  display: grid;
+  place-items: center;
+}
+
+.warning {
+  position: absolute;
+  bottom: 10%;
+}
+
+.ml16 {
+  padding: 40px 0;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  overflow: hidden;
+}
+
+.ml16 .letter {
+  display: inline-block;
+  line-height: 1em;
+  background: var(--card-hover);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 2rem;
+  filter: brightness(120%);
+  font-size: 5vw;
+}/*# sourceMappingURL=style.css.map */

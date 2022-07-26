@@ -1,0 +1,67 @@
+.light {
+    --bg: var(--grey0);
+    --bg-nav:var(--card-hover);
+    --bg-dropdown: var(--greyDropdown);
+    --text: var(--grey6);
+    --border-color: var(--blue);
+    --bg-solar: var(--yellow);
+    --label: var(--grey0);
+    --underline:linear-gradient(90deg, var(--grey3), var(--grey4), var(--grey2));
+    --card-hover: linear-gradient(40deg, var(--cyan), var(--blue), var(--green));
+    --bgEffectBottom:transparent;
+    --underline-2: linear-gradient(40deg, var(--grey2), var(--grey1));
+    --placeholder: var(--grey2); 
+    --everything: var(--grey0);
+    --event: all;
+}
+
+.dark {
+    --bgEffectTop: var(--cyan);
+    --event: none;
+    --everything: transparent;
+    --label: var(--grey5);
+    --bg: var(--grey6);
+    --bg-nav: var(--greyDropdownDark);
+    --bg-dropdown: var(--greyDropdownDark);
+    --text: var(--grey0);
+    --border-color: var(--purple);
+    --bg-solar: var(--blue);
+    --underline: linear-gradient(90deg, var(--cyan), var(--purple));
+    --card-hover: var(--underline);
+    --bgEffectBottom: var(--purple);
+    --underline-2: linear-gradient(40deg, var(--cyan), var(--purple));
+}
+
+.solar {
+    --grey0: #f8ebdb;
+    --grey1: #f3dcc1;
+    --grey2: #f1bc94;
+    --grey3: #312f2e;
+    --grey4: #f08452;
+    --grey5: #2a2929;
+    --grey6: #12181b;
+    --blue: #1671c6;
+    --purple: #a8138b;
+    --yellow: #ffde0b;
+}
+
+@keyframes color-rotate {
+    from{
+        filter: hue-rotate(0deg);
+    }
+
+    to{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.logo{
+    margin-top: 1rem;
+border-radius: 10px;
+box-shadow:  0 10px 10px rgba(0,0,0,0.2);
+pointer-events: all;
+    &:where(:hover, :active){
+        animation: color-rotate 1s ease infinite;
+        animation-direction: alternate;
+    }
+}

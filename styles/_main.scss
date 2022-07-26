@@ -1,0 +1,48 @@
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    .head {
+
+        h1 {
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: calc(15vw * .14);
+            background: var(--underline);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            transition: var(--trans-box);
+        }
+
+    }
+}
+@media (max-width: 500px) {
+    h1 {
+        font-size: calc(20vw * .23);
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: calc(20vw * .235) !important;
+    }
+}
+
+@media (max-width: 950px) {
+    h1 {
+        font-size: calc(20vw * .2);
+    }
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 0 5rem;
+}
+
+.title {
+    position: relative;
+}
