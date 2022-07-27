@@ -8,72 +8,116 @@
     background: #fff;
     //    margin-top: 2rem;
 }
-.dark .content{
+
+.dark .content {
     background: transparent;
 }
 
 .first-half {
-    background: #929292;
-    background-image: url(../images/macbook.jpg);
+    // background: linear-gradient( #000, #000);
+    background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/macbook.jpg);
     font-family: 'work sans', sans-serif;
-    background-blend-mode: overlay;
+    // background-blend-mode: overlay;
     background-attachment: fixed;
     background-size: contain;
-    background-position: left center;
-    flex: 2.5;
+    background-repeat: no-repeat;
+    flex: 1.5;
+    max-width: 50%;
     color: var(--grey0);
+
+    @media (max-width:1150px) {
+        flex: 1;
+    }
 
 
     .confirst {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 3rem;
-        padding-top: 50%;
+        justify-content: center;
+        padding: 0 2rem;
+        // padding-top: 20rem;
         height: 100%;
         // backdrop-filter: blur(10px);
 
         .logocon {
             position: absolute;
-            top:3rem;
-            left: 3rem;
+            top: calc(100vh - 90vh);
+            left: 4rem;
 
-            
+
             .ventalogo {
                 img {
                     width: var(--logo-size);
-                    
-                    
+
+
                 }
             }
         }
 
-        h2 {
-            margin-bottom: 2rem;
-            font-size: calc(20vw * .2);
+        .sayhello {
+            text-align: center;
+            transition: var(--transi);
+
+            h2 {
+                margin-bottom: 2rem;
+                font-size: clamp(1.2rem, 5vw, 3.5rem);
+            }
+
+            p {
+                font-size: clamp(1.2rem, 5vw, 1.8rem);
+                text-align: center;
+                font-weight: 600;
+            }
+
+            @media (max-width:1320px) {
+                transition: var(--transi);
+
+                p {
+                    font-size: clamp(1rem, 14vw, 1.5rem);
+                }
+            }
         }
 
-        p {
-            font-size: calc(15vw * .15);
-            text-align: center;
-            font-weight: 500;
-        }
     }
 }
 
 .second-half {
-    flex: 3;
+    flex: 2;
+    // max-width: 100%;
     font-family: poppins, sans-serif;
     overflow-y: auto;
     padding-top: 3rem;
+    transition: var(--transi);
+
+    @media (min-width:1800px) {
+        flex: 2.4;
+    }
+
+    @media (min-width:2000px) {
+        flex: 2.5;
+    }
+
+    @media (min-width:2000px) {
+        flex: 2.7;
+    }
+
+    @media (max-width:1150px) {
+        flex: 1;
+    }
 
     .signin {
         text-align: left !important;
-        margin-left: 2rem;
+
         margin-top: 4rem;
         margin-bottom: 4rem;
         color: var(--darkcyan);
-        font-size: calc(10vw * .14);
+        font-size: calc(15vw * .14);
+        transition: var(--transi);
+
+        @media (max-width:1050px) {
+            font-size: calc(15vw * .18);
+        }
     }
 
     .consecond {
@@ -82,6 +126,10 @@
         flex-direction: column;
         justify-content: space-between;
 
+        @media (min-width:1800px) {
+            padding: 0 8rem;
+        }
+
         .alt-signin {
             display: flex;
             justify-content: center;
@@ -89,6 +137,7 @@
 
             .button {
                 background: none;
+
                 outline: none;
                 border: 1px solid var(--grey2);
                 padding: .71rem 2rem;
@@ -116,6 +165,22 @@
 
                 &:nth-child(1) {
                     margin-right: 2rem;
+                }
+            }
+
+            @media (max-width:1045px) {
+                display: block;
+
+                .button span {
+                    font-size: calc(10vw * .22);
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .button:first-child {
+                    margin-right: 0;
+                    margin-bottom: 2rem;
+
                 }
             }
         }
@@ -249,7 +314,7 @@ label[for="password"] {
         background: var(--cyan1);
         border: none;
         color: var(--grey0);
-        border-radius: 15px;
+        border-radius: 12px;
         padding: 1rem 0;
         width: 90%;
         margin-bottom: 3rem;

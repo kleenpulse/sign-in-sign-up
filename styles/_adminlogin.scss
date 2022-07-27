@@ -1,0 +1,12 @@
+.admin {
+    background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/adminlogin.png);
+}
+.adminhead{
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: var(--grey6);
+}
+.adminparagraph{
+    margin-top: 2em;
+    color: var(--grey4);
+    
+}

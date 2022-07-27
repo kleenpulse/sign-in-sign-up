@@ -84,7 +84,7 @@ body {
   --grey3: #6c7178;
   --grey4: #454545;
   --grey5: #2a292963;
-  --grey6: #12181b;
+  --grey6: #1f2529;
   --blue: #1671c6;
   --green: #01ffa6;
   --purple: #ff00cc;
@@ -92,6 +92,7 @@ body {
   --cyan1: #059292;
   --darkcyan: #025d5d;
   --verydarkcyan: #012f2f;
+  --overlay: rgba(73, 71, 71, 0.593);
   --yellow: #ffde0b;
   --gradient: linear-gradient(90deg, var(--grey6), var(--grey3));
   --logo-size:150px;
@@ -204,61 +205,108 @@ main {
 }
 
 .first-half {
-  background: #929292;
-  background-image: url(../images/macbook.jpg);
+  background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/macbook.jpg);
   font-family: "work sans", sans-serif;
-  background-blend-mode: overlay;
   background-attachment: fixed;
   background-size: contain;
-  background-position: left center;
-  flex: 2.5;
+  background-repeat: no-repeat;
+  flex: 1.5;
+  max-width: 50%;
   color: var(--grey0);
+}
+@media (max-width: 1150px) {
+  .first-half {
+    flex: 1;
+  }
 }
 .first-half .confirst {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 3rem;
-  padding-top: 50%;
+  justify-content: center;
+  padding: 0 2rem;
   height: 100%;
 }
 .first-half .confirst .logocon {
   position: absolute;
-  top: 3rem;
-  left: 3rem;
+  top: 10vh;
+  left: 4rem;
 }
 .first-half .confirst .logocon .ventalogo img {
   width: var(--logo-size);
 }
-.first-half .confirst h2 {
-  margin-bottom: 2rem;
-  font-size: 4vw;
-}
-.first-half .confirst p {
-  font-size: 2.25vw;
+.first-half .confirst .sayhello {
   text-align: center;
-  font-weight: 500;
+  transition: var(--transi);
+}
+.first-half .confirst .sayhello h2 {
+  margin-bottom: 2rem;
+  font-size: clamp(1.2rem, 5vw, 3.5rem);
+}
+.first-half .confirst .sayhello p {
+  font-size: clamp(1.2rem, 5vw, 1.8rem);
+  text-align: center;
+  font-weight: 600;
+}
+@media (max-width: 1320px) {
+  .first-half .confirst .sayhello {
+    transition: var(--transi);
+  }
+  .first-half .confirst .sayhello p {
+    font-size: clamp(1rem, 14vw, 1.5rem);
+  }
 }
 
 .second-half {
-  flex: 3;
+  flex: 2;
   font-family: poppins, sans-serif;
   overflow-y: auto;
   padding-top: 3rem;
+  transition: var(--transi);
+}
+@media (min-width: 1800px) {
+  .second-half {
+    flex: 2.4;
+  }
+}
+@media (min-width: 2000px) {
+  .second-half {
+    flex: 2.5;
+  }
+}
+@media (min-width: 2000px) {
+  .second-half {
+    flex: 2.7;
+  }
+}
+@media (max-width: 1150px) {
+  .second-half {
+    flex: 1;
+  }
 }
 .second-half .signin {
   text-align: left !important;
-  margin-left: 2rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
   color: var(--darkcyan);
-  font-size: 1.4vw;
+  font-size: 2.1vw;
+  transition: var(--transi);
+}
+@media (max-width: 1050px) {
+  .second-half .signin {
+    font-size: 2.7vw;
+  }
 }
 .second-half .consecond {
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+@media (min-width: 1800px) {
+  .second-half .consecond {
+    padding: 0 8rem;
+  }
 }
 .second-half .consecond .alt-signin {
   display: flex;
@@ -290,6 +338,20 @@ main {
 }
 .second-half .consecond .alt-signin .button:nth-child(1) {
   margin-right: 2rem;
+}
+@media (max-width: 1045px) {
+  .second-half .consecond .alt-signin {
+    display: block;
+  }
+  .second-half .consecond .alt-signin .button span {
+    font-size: 2.2vw;
+    width: 100%;
+    text-align: center;
+  }
+  .second-half .consecond .alt-signin .button:first-child {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
 }
 .second-half .consecond .separator {
   display: flex;
@@ -395,7 +457,7 @@ label[for=password] {
   background: var(--cyan1);
   border: none;
   color: var(--grey0);
-  border-radius: 15px;
+  border-radius: 12px;
   padding: 1rem 0;
   width: 90%;
   margin-bottom: 3rem;
@@ -454,6 +516,25 @@ label[for=password] {
   position: relative;
   left: -35px;
   content: "✖";
+}
+
+.admin {
+  background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/adminlogin.png);
+}
+
+.adminhead {
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--grey6);
+}
+
+.adminparagraph {
+  margin-top: 2em;
+  color: var(--grey4);
+}
+
+.password {
+  background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/forgotpass.png);
+  background-position: -100px;
 }
 
 ul {
@@ -542,7 +623,6 @@ header p {
   border-top: 2px solid var(--border-color);
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
-  opacity: 0;
   color: var(--text);
   display: flex;
   align-items: center;
@@ -553,6 +633,7 @@ header p {
   transform: translateX(-40%);
   backdrop-filter: blur(6px);
   transition: opacity 0.15s ease-out;
+  display: none;
 }
 
 .has-dropdown {
@@ -564,8 +645,12 @@ header p {
   justify-content: center;
 }
 .has-dropdown:focus-within .dropdown {
-  opacity: 1;
+  display: flex;
   pointer-events: auto;
+}
+
+.dropdown-item {
+  opacity: 1 !important;
 }
 
 .dropdown-item a {
@@ -641,8 +726,10 @@ header p {
   position: absolute;
   bottom: 0;
   right: 0;
+  font-family: "work sans", sans-serif;
 }
 .second-half .consecond .second-half-foo p {
+  font-weight: 600;
   position: relative;
   color: var(--verydarkcyan);
 }

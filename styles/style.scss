@@ -13,6 +13,7 @@
 
 }
 
+
 @import 'themes';
 
 body {
@@ -26,7 +27,7 @@ body {
     --grey3: #6c7178;
     --grey4: #454545;
     --grey5: #2a292963;
-    --grey6: #12181b;
+    --grey6: #1f2529;
     --blue: #1671c6;
     --green: #01ffa6;
     --purple: #ff00cc;
@@ -34,6 +35,7 @@ body {
     --cyan1: #059292;
     --darkcyan: #025d5d;
     --verydarkcyan: #012f2f;
+    --overlay: rgba(73, 71, 71, 0.593);
     --yellow: #ffde0b;
     --gradient: linear-gradient(90deg, var(--grey6), var(--grey3));
 
@@ -100,6 +102,8 @@ canvas {
 
 @import 'main';
 @import 'contact';
+@import 'adminlogin';
+@import 'forgotpass';
 
 ul {
     list-style: none;
@@ -198,7 +202,7 @@ header {
     border-top: 2px solid var(--border-color);
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    opacity: 0;
+    // opacity: 0;
     color: var(--text);
 
     display: flex;
@@ -212,6 +216,7 @@ header {
     backdrop-filter: blur(6px);
 
     transition: opacity .15s ease-out;
+    display: none;
 }
 
 .has-dropdown {
@@ -226,12 +231,15 @@ header {
 
     &:focus-within {
         .dropdown {
-            opacity: 1;
+            
+            display: flex;
             pointer-events: auto;
         }
     }
 }
-
+.dropdown-item{
+    opacity: 1 !important;
+}
 .dropdown-item a {
     width: 100%;
     height: 100%;
