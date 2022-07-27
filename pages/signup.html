@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/user.png" type="image/x-icon">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/signin.css">
     <!--======= SCRIPTS======= -->
     <script src="../scripts/app.js" defer></script>
     <!--======= SCRIPTS{END}======= -->
@@ -45,13 +46,26 @@
         <div class="first-half">
             <!-- first half container -->
             <div class="confirst">
+                <div class="logocon">
+                    <div class="ventalogo">
+
+                        <img src="../images/logo left.png" alt="" class="venta">
+                    </div>
+                </div>
                 <h2>Hello Friend!</h2>
                 <p>Enter your personal details and start your amazing journey with us.</p>
+                <div class="first-half-foo">
+                    <ul>
+                        <li class="foo-item">Privacy Policy</li>
+                        <li class="foo-item">Terms of Use</li>
+                        <li class="foo-item">Disclaimer</li>
+                    </ul>
+                </div>
             </div>
         </div>
         <!-- Second Half -->
         <div class="second-half">
-            <div class="title">
+            <div class="signin">
                 <h2>Create Account</h2>
             </div>
             <div class="consecond">
@@ -77,10 +91,9 @@
                             <label for="text">Full Name
 
 
-                                
+
                             </label>
-                            <input type="text" name="name" required 
-                            id="text" placeholder="e.g John Doe">
+                            <input type="text" name="name" required id="text" placeholder="e.g John Doe">
                         </div>
                         <div class="input-control input-2">
                             <label for="email">Email Address</label>
@@ -92,7 +105,9 @@
                         <div class="input-control input-2">
                             <label for="password">Password
 
-                                <input type="password" name="password" id="password" required placeholder="at least 8 characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                                <input type="password" name="password" id="password" required
+                                    placeholder="at least 8 characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                                 <span id="visible">Show</span>
                             </label>
                         </div>
@@ -108,8 +123,11 @@
                 <div class="btn">
                     <button class="submit">Sign up</button>
                     <p>Already have an account? <a href="login.html"> Sign in</a></p>
-
+                    <div class="second-half-foo">
+                        <p>©️2022 Venta Inc. All rights reserved.</p>
+                    </div>
                 </div>
+
                 </form>
 
             </div>

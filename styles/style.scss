@@ -18,7 +18,7 @@
 body {
 
     //colors
-    --grey0: #e0e0e0;
+    --grey0: #eaeaea;
     --greyDropdown: #f8f8f824;
     --greyDropdownDark: #00000024;
     --grey1: #c8daee2d;
@@ -33,9 +33,12 @@ body {
     --cyan: #0ff;
     --cyan1: #059292;
     --darkcyan: #025d5d;
+    --verydarkcyan: #012f2f;
     --yellow: #ffde0b;
-
     --gradient: linear-gradient(90deg, var(--grey6), var(--grey3));
+
+    // size
+    --logo-size:150px;
 
     background: var(--bg);
     color: var(--text);
@@ -112,7 +115,7 @@ a {
     // background: var(--bg-nav);
     // color: #fff;
     pointer-events: all;
-    position: sticky;
+    position: fixed;
     // margin-bottom: 4rem;
 
     .navbar-nav {
@@ -125,7 +128,7 @@ a {
     }
 }
 
-ul li {
+ .navbar ul li {
     font-size: calc(20vw * .15);
     margin-top: 10px;
     text-transform: uppercase;
@@ -148,7 +151,7 @@ header {
     // background: var(--bg-nav);
     padding: 1em;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 6rem;
     margin-bottom: 1em;
     padding-bottom: 3em;
     text-align: center;
@@ -181,7 +184,7 @@ header {
     header {
         border-radius: 52px;
         box-shadow: 40px 40px 59px #848484,
-            -40px -40px 59px #ffffff;
+            -30px -30px 59px #ffffff;
         margin-bottom: 2rem;
         color: #03165b;
     }

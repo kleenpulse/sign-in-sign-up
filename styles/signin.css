@@ -1,0 +1,8 @@
+ .navbar ul li {
+     opacity: .3;
+ }
+
+ .navbar ul li:hover {
+     opacity: 1;
+ }
+

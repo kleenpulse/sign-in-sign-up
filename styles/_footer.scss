@@ -10,3 +10,43 @@
     background: var(--underline-2);
     border-radius: 10px;
 }
+
+.first-half{
+    .confirst{
+        .first-half-foo{
+            position: absolute;
+            bottom: 2rem;
+
+            ul{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                
+                li{
+                    margin-right: 5rem;
+                    font-weight: lighter;
+                    letter-spacing: 1px;
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.second-half{
+    .consecond{
+        .second-half-foo {
+            padding-right: 2rem;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            p{
+                    position: relative;
+            
+                    color: var(--verydarkcyan);
+                }
+            }
+    }
+}
