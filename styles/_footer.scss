@@ -27,8 +27,12 @@
                     margin-right: 5rem;
                     font-weight: lighter;
                     letter-spacing: 1px;
+                    transition: var(--transi);
                     &:last-child{
                         margin-right: 0;
+                    }
+                    @media (max-width:990px) {
+                        margin-right: 2rem;
                     }
                 }
             }

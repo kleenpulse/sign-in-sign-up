@@ -287,15 +287,18 @@
     }
 }
 
-label[for="password"] {
+label[for="password"],
+label[for="passconfirm"] {
     position: relative;
 }
 
-#password {
+#password ,
+#passconfirm{
     margin-top: 1rem;
 }
 
-#visible {
+#visible,
+#confirm {
     position: absolute;
     right: 10px;
     top: 50%;
@@ -318,6 +321,7 @@ label[for="password"] {
         padding: 1rem 0;
         width: 90%;
         margin-bottom: 3rem;
+        font-size: large;
         cursor: pointer;
         transition: var(--transi);
 

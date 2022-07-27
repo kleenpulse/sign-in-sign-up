@@ -58,6 +58,8 @@ solarBtn.onclick = () => {
 // Validate password
 const messageDisplay = document.getElementById("message")
 
+let isConfirmed = document.querySelector('#confirm')
+let passConfirmed = document.querySelector('#passconfirm')
 let isVisible = document.querySelector('#visible')
 let myInput = document.getElementById("password");
 var letter = document.getElementById("letter");
@@ -71,6 +73,18 @@ isVisible.onclick = function () {
     myInput.setAttribute('type', type)
     const toggleTxt = isVisible.textContent === 'Show' ? 'Hide' : 'Show'
     isVisible.textContent = toggleTxt
+    // messageDisplay.style.display = "block";
+}
+
+passConfirmed.disabled = true
+
+// show or hide confirm password
+
+isConfirmed.onclick = function () {
+    const type = passConfirmed.getAttribute('type') === 'password' ? 'text' : 'password'
+    passConfirmed.setAttribute('type', type)
+    const toggleTxt = isConfirmed.textContent === 'Show' ? 'Hide' : 'Show'
+    isConfirmed.textContent = toggleTxt
     // messageDisplay.style.display = "block";
 }
 
@@ -131,15 +145,15 @@ myInput.onkeyup = function () {
     if (letter.classList.contains('valid') &&
         capital.classList.contains('valid') &&
         number.classList.contains('valid') &&
-        length.classList.contains('valid')){
-            setTimeout(() => {
-    messageDisplay.style.display = 'none'
-    
-}, 1000);
-        myInput.onfocus = function () {
-            messageDisplay.style.display = "none";
+        length.classList.contains('valid')) {
+        setTimeout(() => {
+            messageDisplay.style.display = 'none'
 
-        }
-        }
+        }, 1000);
+        passConfirmed.disabled = false
+    }else{
+        passConfirmed.disabled = true
+
+    }
 }
 

@@ -73,11 +73,11 @@ body {
     }
 
     // min because not responsive yet
-    min-width: 900px;
+    // min-width: 900px;
 
-    @media (max-width:900px) {
-        overflow: scroll;
-    }
+    // @media (max-width:900px) {
+    //     overflow: scroll;
+    // }
 }
 
 canvas {
