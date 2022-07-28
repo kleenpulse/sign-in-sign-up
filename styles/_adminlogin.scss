@@ -1,12 +1,34 @@
 .admin {
     background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/adminlogin.png);
 }
-.adminhead{
+
+.adminhead {
     font-size: clamp(2rem, 6vw, 3rem);
     color: var(--grey6);
 }
-.adminparagraph{
+
+.dark {
+    ::placeholder {
+        color: var(--grey3) !important;
+    }
+    #visible,
+    #confirm{
+        color: var(--grey0);
+    }
+
+    .adminhead,
+    .forgotpasshead {
+        color: var(--grey0);
+    }
+
+    .adminparagraph {
+        color: var(--grey2);
+    }
+}
+
+.adminparagraph {
     margin-top: 2em;
     color: var(--grey4);
-    
+    font-size: clamp(2rem, 6vw, 2rem);
+
 }

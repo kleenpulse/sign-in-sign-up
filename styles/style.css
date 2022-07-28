@@ -525,9 +525,25 @@ label[for=passconfirm] {
   color: var(--grey6);
 }
 
+.dark ::placeholder {
+  color: var(--grey3) !important;
+}
+.dark #visible,
+.dark #confirm {
+  color: var(--grey0);
+}
+.dark .adminhead,
+.dark .forgotpasshead {
+  color: var(--grey0);
+}
+.dark .adminparagraph {
+  color: var(--grey2);
+}
+
 .adminparagraph {
   margin-top: 2em;
   color: var(--grey4);
+  font-size: clamp(2rem, 6vw, 2rem);
 }
 
 .password {

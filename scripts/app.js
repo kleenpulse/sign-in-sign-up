@@ -6,17 +6,26 @@ const lightBtn = document.querySelector('#light')
 const solarBtn = document.querySelector('#solar')
 const body = document.body
 
+// ===== Variables ======
+
+const messageDisplay = document.getElementById("message")
+
+let isConfirmed = document.querySelector('#confirm')
+let passConfirmed = document.querySelector('#passconfirm')
+let isVisible = document.querySelector('#visible')
+let myInput = document.getElementById("password");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
 // Remember prefered theme
 
 const theme = localStorage.getItem('theme')
 const isSolar = localStorage.getItem('isSolar')
 
 if (theme) {
-    // if(body.classList.contains(theme)){
-    //     return
-    // }else{
-    //     body.removeAttribute('class')
-    // }
+    body.removeAttribute('class')
     body.classList.add(theme)
     isSolar && body.classList.add('solar')
 }
@@ -27,12 +36,9 @@ darkBtn.onclick = () => {
     body.classList.replace('light', 'dark')
     localStorage.setItem('theme', 'dark')
 }
-
 lightBtn.onclick = () => {
     body.classList.replace('dark', 'light')
     localStorage.setItem('theme', 'light')
-
-
 }
 
 solarBtn.onclick = () => {
@@ -51,21 +57,8 @@ solarBtn.onclick = () => {
 
     }
 }
-// localStorage.clear()
-
-// Validate form
-
 // Validate password
-const messageDisplay = document.getElementById("message")
 
-let isConfirmed = document.querySelector('#confirm')
-let passConfirmed = document.querySelector('#passconfirm')
-let isVisible = document.querySelector('#visible')
-let myInput = document.getElementById("password");
-var letter = document.getElementById("letter");
-var capital = document.getElementById("capital");
-var number = document.getElementById("number");
-var length = document.getElementById("length");
 
 // show or hide password
 isVisible.onclick = function () {
@@ -75,8 +68,36 @@ isVisible.onclick = function () {
     isVisible.textContent = toggleTxt
     // messageDisplay.style.display = "block";
 }
+// disable passconfirm input field
+function disablePasswordConfirm(){
+    passConfirmed.disabled = true
+    passConfirmed.setAttribute('style', `
+    cursor: not-allowed;
+    opacity: .5;
+    `)
 
-passConfirmed.disabled = true
+    isConfirmed.setAttribute('style', `
+    cursor: not-allowed;
+    opacity: .5;
+    `)
+
+}
+disablePasswordConfirm()
+
+// enable passconfirm input field
+function enablePasswordConfirm() {
+    passConfirmed.disabled = false
+    passConfirmed.setAttribute('style', `
+    cursor: pointer;
+    opacity: 1;
+    `)
+
+    isConfirmed.setAttribute('style', `
+    cursor: pointer;
+    opacity: 1;
+    `)
+
+}
 
 // show or hide confirm password
 
@@ -150,9 +171,9 @@ myInput.onkeyup = function () {
             messageDisplay.style.display = 'none'
 
         }, 1000);
-        passConfirmed.disabled = false
+        enablePasswordConfirm()
     }else{
-        passConfirmed.disabled = true
+        disablePasswordConfirm()
 
     }
 }
