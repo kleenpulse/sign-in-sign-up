@@ -43,14 +43,17 @@
     .consecond{
         .second-half-foo {
             padding-right: 2rem;
-            position: absolute;
-            bottom: 0;
-            right: 0;
+            position: relative;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            width: 100%;
             font-family: 'work sans', sans-serif;
             p{
                 font-weight: 600;
-                    position: relative;
-            
+                    position: absolute;
+                    right: 0;
+                    
+            text-align: right;
                     color: var(--verydarkcyan);
                 }
             }
