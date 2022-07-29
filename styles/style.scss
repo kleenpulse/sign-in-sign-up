@@ -71,13 +71,6 @@ body {
         filter: blur(140px);
         z-index: -1;
     }
-
-    // min because not responsive yet
-    // min-width: 900px;
-
-    // @media (max-width:900px) {
-    //     overflow: scroll;
-    // }
 }
 
 canvas {
@@ -116,8 +109,6 @@ a {
 .navbar {
     height: 70px;
     width: 100%;
-    // background: var(--bg-nav);
-    // color: #fff;
     pointer-events: all;
     position: fixed;
     // margin-bottom: 4rem;
@@ -155,7 +146,7 @@ header {
     // background: var(--bg-nav);
     padding: 1em;
     width: 100%;
-    margin-top: 6rem;
+    margin-top: 7rem;
     margin-bottom: 1em;
     padding-bottom: 3em;
     text-align: center;
@@ -169,6 +160,10 @@ header {
         -webkit-background-clip: text;
         background-clip: text;
         font-size: 2rem;
+        transition: var(--transi);
+        @media (min-width:900px) {
+            font-size: 3rem;
+        }
         filter: brightness(120%);
     }
 }
@@ -178,9 +173,11 @@ header {
 }
 
 .light {
+    .warning{
+        opacity: 0;
+    }
     .header {
-        height: 500px;
-        width: 500px;
+
         display: flex;
         align-items: center;
     }
@@ -190,7 +187,7 @@ header {
         box-shadow: 40px 40px 59px #848484,
             -30px -30px 59px #ffffff;
         margin-bottom: 2rem;
-        color: #03165b;
+        color: #666668;
     }
 }
 
@@ -300,6 +297,7 @@ header {
     text-transform: uppercase;
     letter-spacing: 0.5em;
     overflow: hidden;
+    
 }
 
 
@@ -313,4 +311,5 @@ header {
     font-size: 2rem;
     filter: brightness(120%);
     font-size: calc(20vw * .25);
+    
 }

@@ -13,7 +13,10 @@ const messageDisplay = document.getElementById("message")
 let isConfirmed = document.querySelector('#confirm')
 let passConfirmed = document.querySelector('#passconfirm')
 let isVisible = document.querySelector('#visible')
-let myInput = document.getElementById("password");
+let newPasswordAdmin = document.getElementById('newpassword')
+let signupPattern = document.querySelector('signuppass')
+let newAccountPass = document.getElementById('newaccountpass')
+console.log(newPasswordAdmin)
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
 var number = document.getElementById("number");
@@ -23,12 +26,12 @@ var length = document.getElementById("length");
 
 const theme = localStorage.getItem('theme')
 const isSolar = localStorage.getItem('isSolar')
-
 if (theme) {
     body.removeAttribute('class')
     body.classList.add(theme)
     isSolar && body.classList.add('solar')
 }
+
 
 // Button Event Handlers
 
@@ -62,14 +65,14 @@ solarBtn.onclick = () => {
 
 // show or hide password
 isVisible.onclick = function () {
-    const type = myInput.getAttribute('type') === 'password' ? 'text' : 'password'
-    myInput.setAttribute('type', type)
+    const type = newPasswordAdmin.getAttribute('type') === 'password' ? 'text' : 'password'
+    newPasswordAdmin.setAttribute('type', type)
     const toggleTxt = isVisible.textContent === 'Show' ? 'Hide' : 'Show'
     isVisible.textContent = toggleTxt
     // messageDisplay.style.display = "block";
 }
 // disable passconfirm input field
-function disablePasswordConfirm(){
+function disablePasswordConfirm() {
     passConfirmed.disabled = true
     passConfirmed.setAttribute('style', `
     cursor: not-allowed;
@@ -80,7 +83,6 @@ function disablePasswordConfirm(){
     cursor: not-allowed;
     opacity: .5;
     `)
-
 }
 disablePasswordConfirm()
 
@@ -109,72 +111,79 @@ isConfirmed.onclick = function () {
     // messageDisplay.style.display = "block";
 }
 
-// When the user clicks on the password field, show the message box
-myInput.onfocus = function () {
+newPasswordAdmin.onfocus = function () {
     messageDisplay.style.display = "block";
 
 }
 
-// When the user clicks outside of the password field, hide the message box
-myInput.onblur = function () {
+newPasswordAdmin.onblur = function () {
     messageDisplay.style.display = "none";
 
 
 }
-
+let newPasswordAdminChar = ''
 // When the user starts to type something inside the password field
-myInput.onkeyup = function () {
-    // Validate lowercase letters
-    var lowerCaseLetters = /[a-z]/g;
-    if (myInput.value.match(lowerCaseLetters)) {
-        letter.classList.remove("invalid");
-        letter.classList.add("valid");
-    } else {
-        letter.classList.remove("valid");
-        letter.classList.add("invalid");
+newPasswordAdmin.onkeyup = validatePassword
+
+
+    function validatePassword() {
+        // Validate lowercase letters
+        var lowerCaseLetters = /[a-z]/g;
+        if (newPasswordAdmin.value.match(lowerCaseLetters)) {
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+        } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+        }
+
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if (newPasswordAdmin.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+        } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if (newPasswordAdmin.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+        } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+        }
+
+        // Validate length
+        if (newPasswordAdmin.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+        } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+        }
+
+        if (letter.classList.contains('valid') &&
+            capital.classList.contains('valid') &&
+            number.classList.contains('valid') &&
+            length.classList.contains('valid')) {
+            setTimeout(() => {
+                messageDisplay.style.display = 'none'
+
+            }, 1000);
+            if (messageDisplay.style.display = 'block'){
+                messageDisplay.style.display = 'none !important'
+            }
+            enablePasswordConfirm()
+        } else {
+            disablePasswordConfirm()
+
+        }
+        newPasswordAdminChar = newPasswordAdmin.value
+        // passConfirmed.value = newPasswordChar
+        console.log(newPasswordAdminChar)
+        passConfirmed.setAttribute('pattern', newPasswordAdminChar)
     }
-
-    // Validate capital letters
-    var upperCaseLetters = /[A-Z]/g;
-    if (myInput.value.match(upperCaseLetters)) {
-        capital.classList.remove("invalid");
-        capital.classList.add("valid");
-    } else {
-        capital.classList.remove("valid");
-        capital.classList.add("invalid");
-    }
-
-    // Validate numbers
-    var numbers = /[0-9]/g;
-    if (myInput.value.match(numbers)) {
-        number.classList.remove("invalid");
-        number.classList.add("valid");
-    } else {
-        number.classList.remove("valid");
-        number.classList.add("invalid");
-    }
-
-    // Validate length
-    if (myInput.value.length >= 8) {
-        length.classList.remove("invalid");
-        length.classList.add("valid");
-    } else {
-        length.classList.remove("valid");
-        length.classList.add("invalid");
-    }
-
-    if (letter.classList.contains('valid') &&
-        capital.classList.contains('valid') &&
-        number.classList.contains('valid') &&
-        length.classList.contains('valid')) {
-        setTimeout(() => {
-            messageDisplay.style.display = 'none'
-
-        }, 1000);
-        enablePasswordConfirm()
-    }else{
-        disablePasswordConfirm()
-
-    }
-}
-

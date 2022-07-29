@@ -74,6 +74,7 @@
         </div>
     </div>
 <script>
+    
   
     // Anime JS
 
@@ -82,7 +83,7 @@
 
         anime.timeline({ loop: true })
             .add({
-                targets: '.ml16 .letter',
+                targets: '.ml16 .letter ',
                 translateY: [-100, 0],
                 easing: "easeOutExpo",
                 duration: 1400,
@@ -94,6 +95,9 @@
                 easing: "easeOutExpo",
                 delay: 1000
             });
+</script>
+<script>
+    window.onload = () => { darkBtn.click() }
 </script>
 </body>
 

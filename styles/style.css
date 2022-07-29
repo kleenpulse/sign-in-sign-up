@@ -46,9 +46,7 @@
 .solar {
   --grey0: #f8ebdb;
   --grey1: #f3dcc1;
-  --grey2: #f1bc94;
   --grey3: #312f2e;
-  --grey4: #f08452;
   --grey5: #2a2929;
   --grey6: #12181b;
   --blue: #1671c6;
@@ -425,11 +423,17 @@ main {
 }
 
 label[for=password],
+label[for=newpassword],
+label[for=sign-in-password],
+label[for=newaccountpass],
 label[for=passconfirm] {
   position: relative;
 }
 
 #password,
+#newpassword,
+#sign-in-password,
+#newaccountpass,
 #passconfirm {
   margin-top: 1rem;
 }
@@ -441,6 +445,12 @@ label[for=passconfirm] {
   top: 50%;
   color: var(--darkcyan);
   cursor: pointer;
+}
+
+#checker {
+  position: absolute;
+  top: 50%;
+  left: 10px;
 }
 
 .btn {
@@ -581,6 +591,43 @@ label[for=passconfirm] {
   width: var(--logo-size);
 }
 
+::selection {
+  background: var(--overlay);
+  color: var(--green);
+}
+
+input {
+  padding-right: 0 !important;
+  padding-left: 2rem !important;
+}
+
+#passconfirm,
+#newpassword,
+#newaccountpass,
+#password {
+  transition: background 0ms;
+}
+#passconfirm:invalid:not(:placeholder-shown),
+#newpassword:invalid:not(:placeholder-shown),
+#newaccountpass:invalid:not(:placeholder-shown),
+#password:invalid:not(:placeholder-shown) {
+  background: url(../images/redx.png);
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 5px 50%;
+  border: 1px solid red;
+}
+#passconfirm:valid:not(:placeholder-shown),
+#newpassword:valid:not(:placeholder-shown),
+#newaccountpass:valid:not(:placeholder-shown),
+#password:valid:not(:placeholder-shown) {
+  background: url(../images/check.png);
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 5px 50%;
+  transition: background 410ms;
+}
+
 ul {
   list-style: none;
 }
@@ -625,7 +672,7 @@ a {
 header {
   padding: 1em;
   width: 100%;
-  margin-top: 6rem;
+  margin-top: 7rem;
   margin-bottom: 1em;
   padding-bottom: 3em;
   text-align: center;
@@ -639,16 +686,23 @@ header p {
   -webkit-background-clip: text;
   background-clip: text;
   font-size: 2rem;
+  transition: var(--transi);
   filter: brightness(120%);
+}
+@media (min-width: 900px) {
+  header p {
+    font-size: 3rem;
+  }
 }
 
 .header {
   margin-top: 5rem;
 }
 
+.light .warning {
+  opacity: 0;
+}
 .light .header {
-  height: 500px;
-  width: 500px;
   display: flex;
   align-items: center;
 }
@@ -656,7 +710,7 @@ header p {
   border-radius: 52px;
   box-shadow: 40px 40px 59px #848484, -30px -30px 59px #ffffff;
   margin-bottom: 2rem;
-  color: #03165b;
+  color: #666668;
 }
 
 .dropdown {

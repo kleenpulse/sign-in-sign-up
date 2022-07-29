@@ -1,6 +1,8 @@
 .password {
     background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/forgotpass.png);
     background-position: -100px;
+
+
     @media (max-width:980px) {
         background-attachment: fixed;
         background-size: cover;
@@ -35,4 +37,42 @@
             width: var(--logo-size);
         }
     }
+}
+
+::selection {
+    background: var(--overlay);
+    color: var(--green);
+}
+
+input {
+    padding-right: 0 !important;
+    padding-left: 2rem !important;
+}
+
+#passconfirm,
+#newpassword,
+#newaccountpass,
+#password {
+
+    transition: background 0ms;
+
+    &:invalid:not(:placeholder-shown) {
+        background: url(../images/redx.png);
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: 5px 50%;
+        border: 1px solid red;
+
+    }
+
+    &:valid:not(:placeholder-shown) {
+        background: url(../images/check.png);
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: 5px 50%;
+        transition: background 410ms;
+        // border: 1px solid red;
+
+    }
+
 }

@@ -288,11 +288,17 @@
 }
 
 label[for="password"],
+label[for="newpassword"],
+label[for="sign-in-password"],
+label[for="newaccountpass"],
 label[for="passconfirm"] {
     position: relative;
 }
 
 #password ,
+#newpassword,
+#sign-in-password,
+#newaccountpass,
 #passconfirm{
     margin-top: 1rem;
 }
@@ -304,6 +310,11 @@ label[for="passconfirm"] {
     top: 50%;
     color: var(--darkcyan);
     cursor: pointer;
+}
+#checker{
+    position: absolute;
+    top: 50%;
+    left: 10px;
 }
 
 .btn {
