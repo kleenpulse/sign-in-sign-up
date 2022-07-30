@@ -29,6 +29,8 @@
 .adminparagraph {
     margin-top: 2em;
     color: var(--grey4);
-    font-size: clamp(2rem, 6vw, 2rem);
+    font-size: calc(15vw * .1);
+    transition: var(--transi);
+  
 
 }

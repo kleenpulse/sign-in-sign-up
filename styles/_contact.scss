@@ -5,7 +5,7 @@
     width: 100% !important;
     overflow: hidden;
     user-select: none;
-    background: #fff;
+    // background: #ffffff;
     //    margin-top: 2rem;
 }
 
@@ -137,14 +137,15 @@
 
             .button {
                 background: none;
-
+                color: var(--grey6);
                 outline: none;
-                border: 1px solid var(--grey2);
+                // border: 1px solid var(--grey2);
                 padding: .71rem 2rem;
                 border-radius: 12px;
                 display: flex;
                 justify-content: center;
-                // width: 50%;
+                box-shadow: .3rem .4rem .4rem rgb(176, 180, 184),
+                    -.2rem -.2rem .8rem var(--white);
                 flex-grow: 1;
                 align-items: center;
                 transition: var(--transi);
@@ -253,11 +254,13 @@
         input {
             font-weight: 600;
             width: calc(100% - 2rem);
-            padding: 1rem;
-            border: 1px solid var(--grey2);
+            padding: 1.2rem 1rem;
+            border: none;
             background: var(--grey1);
             margin-bottom: 1rem;
             border-radius: 15px;
+            box-shadow: inset .3rem .2rem .4rem rgb(176, 180, 184),
+                inset -.2rem -.2rem .8rem var(--white);
             transition: var(--transi);
 
             &::placeholder {
@@ -295,11 +298,11 @@ label[for="passconfirm"] {
     position: relative;
 }
 
-#password ,
+#password,
 #newpassword,
 #sign-in-password,
 #newaccountpass,
-#passconfirm{
+#passconfirm {
     margin-top: 1rem;
 }
 
@@ -311,7 +314,8 @@ label[for="passconfirm"] {
     color: var(--darkcyan);
     cursor: pointer;
 }
-#checker{
+
+#checker {
     position: absolute;
     top: 50%;
     left: 10px;
@@ -330,6 +334,8 @@ label[for="passconfirm"] {
         color: var(--grey0);
         border-radius: 12px;
         padding: 1rem 0;
+        box-shadow: .3rem .4rem .4rem rgb(168, 168, 168),
+            -.2rem -.2rem .8rem var(--white);
         width: 90%;
         margin-bottom: 3rem;
         font-size: large;
@@ -337,7 +343,9 @@ label[for="passconfirm"] {
         transition: var(--transi);
 
         &:hover {
-            opacity: .8;
+            filter: brightness(90%);
+            box-shadow: inset .3rem .4rem .4rem rgb(3, 87, 77),
+                inset -.2rem -.2rem .8rem var(--darkcyan);
         }
     }
 
@@ -358,11 +366,11 @@ label[for="passconfirm"] {
     display: none;
     font-family: 'work sans';
     letter-spacing: 1.2px;
-    color: #fff;
+
     border-radius: 30px;
-    background: var(--darkcyan);
-    box-shadow: 5px 5px 10px #616161,
-        -5px -5px 10px #ffffff;
+    // background: var(--cyan1);
+    box-shadow: .3rem .4rem .4rem rgb(191, 196, 200),
+        -.2rem -.2rem .8rem var(--white);
     position: relative;
     transition: var(--transi);
     padding: 20px;
@@ -374,9 +382,20 @@ label[for="passconfirm"] {
     font-size: 18px;
 }
 
+#message h3 {
+    padding: 10px 15px;
+    font-size: calc(10vw * .14);
+    background: #878686;
+    text-shadow: 1px 2px 1px rgb(200, 200, 200);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: uppercase;
+    -webkit-text-fill-color: transparent;
+}
+
 /* Add a green text color and a checkmark when the requirements are right */
 .valid {
-    color: var(--green);
+    color: var(--valid);
 }
 
 .valid:before {
@@ -387,7 +406,7 @@ label[for="passconfirm"] {
 
 /* Add a red text color and an "x" when the requirements are wrong */
 .invalid {
-    color: red;
+    color: rgb(245, 53, 53);
 }
 
 .invalid:before {

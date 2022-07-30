@@ -60,6 +60,9 @@ solarBtn.onclick = () => {
 
     }
 }
+// $(document).on('keydown', (e)=>{
+//     if(e)
+// })
 // Validate password
 
 
