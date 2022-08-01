@@ -238,11 +238,14 @@ header p {
   -webkit-text-fill-color: transparent;
 }
 .light header {
-  border-radius: 32px;
-  box-shadow: 10px 10px 30px #b1b0b0, -10px -10px 30px #ffffff;
   box-shadow: 0.8rem 0.8rem 1.4rem rgb(176, 180, 184), -0.2rem -0.2rem 1.8rem var(--white);
   margin-bottom: 2rem;
   color: #666668;
+}
+
+.boxshadowkeydown {
+  transition: var(--transi);
+  box-shadow: 0.8rem 0.8rem 1.4rem rgb(176, 180, 184), -0.2rem -0.2rem 1.8rem var(--white);
 }
 
 .dropdown {
@@ -337,12 +340,6 @@ header p {
     font-size: 4vw;
   }
 }
-main {
-  display: flex;
-  justify-content: center;
-  padding: 0 5rem;
-}
-
 .title {
   position: relative;
 }
@@ -373,6 +370,11 @@ main {
 @media (max-width: 1150px) {
   .first-half {
     flex: 1;
+  }
+}
+@media (max-width: 800px) {
+  .first-half {
+    display: none;
   }
 }
 .first-half .confirst {
@@ -914,4 +916,9 @@ input {
   font-size: 2rem;
   filter: brightness(120%);
   font-size: 5vw;
+}
+@media (max-width: 570px) {
+  .ml16 .letter {
+    font-size: 6vw;
+  }
 }/*# sourceMappingURL=style.css.map */

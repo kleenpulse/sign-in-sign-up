@@ -202,14 +202,16 @@ img{
 
 
     header {
-        border-radius: 32px;
-        box-shadow: 10px 10px 30px #b1b0b0,
-            -10px -10px 30px #ffffff;
         box-shadow: .8rem .8rem 1.4rem rgb(176, 180, 184),
             -.2rem -.2rem 1.8rem var(--white);
         margin-bottom: 2rem;
         color: #666668;
     }
+}
+.boxshadowkeydown{
+    transition: var(--transi);
+    box-shadow: .8rem .8rem 1.4rem rgb(176, 180, 184),
+            -.2rem -.2rem 1.8rem var(--white) ;
 }
 
 .dropdown {
@@ -351,5 +353,8 @@ img{
     font-size: 2rem;
     filter: brightness(120%);
     font-size: calc(20vw * .25);
+    @media (max-width:570px) {
+    font-size: calc(20vw * .3);
+    }
 
 }

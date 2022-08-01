@@ -12,11 +12,11 @@ const messageDisplay = document.getElementById("message")
 
 let isConfirmed = document.querySelector('#confirm')
 let passConfirmed = document.querySelector('#passconfirm')
-let isVisible = document.querySelector('#visible')
+
+let isVisible = document.querySelectorAll('#visible')
 let newPasswordAdmin = document.getElementById('newpassword')
 let signupPattern = document.querySelector('signuppass')
 let newAccountPass = document.getElementById('newaccountpass')
-console.log(newPasswordAdmin)
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
 var number = document.getElementById("number");
@@ -60,14 +60,27 @@ solarBtn.onclick = () => {
 
     }
 }
-// $(document).on('keydown', (e)=>{
-//     if(e)
-// })
-// Validate password
+const header = $('#header')
+$(document).keydown((e) => {
+    if ((e.which === 32) && (body.classList.contains('dark'))) {
+        header.addClass('boxshadowkeydown')
+        return
+    }
+})
+$(document).keyup((e) => {
+    if (e.which === 32) {
+        setTimeout(() => {
+            header.removeClass('boxshadowkeydown')
+        }, 1000);
+        return
+    }
+})
 
+// Validate password
 
 // show or hide password
 isVisible.onclick = function () {
+    alert('ssfdfd')
     const type = newPasswordAdmin.getAttribute('type') === 'password' ? 'text' : 'password'
     newPasswordAdmin.setAttribute('type', type)
     const toggleTxt = isVisible.textContent === 'Show' ? 'Hide' : 'Show'
@@ -129,64 +142,64 @@ let newPasswordAdminChar = ''
 newPasswordAdmin.onkeyup = validatePassword
 
 
-    function validatePassword() {
-        // Validate lowercase letters
-        var lowerCaseLetters = /[a-z]/g;
-        if (newPasswordAdmin.value.match(lowerCaseLetters)) {
-            letter.classList.remove("invalid");
-            letter.classList.add("valid");
-        } else {
-            letter.classList.remove("valid");
-            letter.classList.add("invalid");
-        }
-
-        // Validate capital letters
-        var upperCaseLetters = /[A-Z]/g;
-        if (newPasswordAdmin.value.match(upperCaseLetters)) {
-            capital.classList.remove("invalid");
-            capital.classList.add("valid");
-        } else {
-            capital.classList.remove("valid");
-            capital.classList.add("invalid");
-        }
-
-        // Validate numbers
-        var numbers = /[0-9]/g;
-        if (newPasswordAdmin.value.match(numbers)) {
-            number.classList.remove("invalid");
-            number.classList.add("valid");
-        } else {
-            number.classList.remove("valid");
-            number.classList.add("invalid");
-        }
-
-        // Validate length
-        if (newPasswordAdmin.value.length >= 8) {
-            length.classList.remove("invalid");
-            length.classList.add("valid");
-        } else {
-            length.classList.remove("valid");
-            length.classList.add("invalid");
-        }
-
-        if (letter.classList.contains('valid') &&
-            capital.classList.contains('valid') &&
-            number.classList.contains('valid') &&
-            length.classList.contains('valid')) {
-            setTimeout(() => {
-                messageDisplay.style.display = 'none'
-
-            }, 1000);
-            if (messageDisplay.style.display = 'block'){
-                messageDisplay.style.display = 'none !important'
-            }
-            enablePasswordConfirm()
-        } else {
-            disablePasswordConfirm()
-
-        }
-        newPasswordAdminChar = newPasswordAdmin.value
-        // passConfirmed.value = newPasswordChar
-        console.log(newPasswordAdminChar)
-        passConfirmed.setAttribute('pattern', newPasswordAdminChar)
+function validatePassword() {
+    // Validate lowercase letters
+    var lowerCaseLetters = /[a-z]/g;
+    if (newPasswordAdmin.value.match(lowerCaseLetters)) {
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+    } else {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
     }
+
+    // Validate capital letters
+    var upperCaseLetters = /[A-Z]/g;
+    if (newPasswordAdmin.value.match(upperCaseLetters)) {
+        capital.classList.remove("invalid");
+        capital.classList.add("valid");
+    } else {
+        capital.classList.remove("valid");
+        capital.classList.add("invalid");
+    }
+
+    // Validate numbers
+    var numbers = /[0-9]/g;
+    if (newPasswordAdmin.value.match(numbers)) {
+        number.classList.remove("invalid");
+        number.classList.add("valid");
+    } else {
+        number.classList.remove("valid");
+        number.classList.add("invalid");
+    }
+
+    // Validate length
+    if (newPasswordAdmin.value.length >= 8) {
+        length.classList.remove("invalid");
+        length.classList.add("valid");
+    } else {
+        length.classList.remove("valid");
+        length.classList.add("invalid");
+    }
+
+    if (letter.classList.contains('valid') &&
+        capital.classList.contains('valid') &&
+        number.classList.contains('valid') &&
+        length.classList.contains('valid')) {
+        setTimeout(() => {
+            messageDisplay.style.display = 'none'
+
+        }, 1000);
+        if (messageDisplay.style.display = 'block') {
+            messageDisplay.style.display = 'none !important'
+        }
+        enablePasswordConfirm()
+    } else {
+        disablePasswordConfirm()
+
+    }
+    newPasswordAdminChar = newPasswordAdmin.value
+    // passConfirmed.value = newPasswordChar
+    console.log(newPasswordAdminChar)
+    passConfirmed.setAttribute('pattern', newPasswordAdminChar)
+}
