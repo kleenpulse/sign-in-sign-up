@@ -88,7 +88,7 @@
                                 <input type="password" name="password" id="password" required
                                     placeholder="at least 8 characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                     title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
-                                <span id="visible">Show</span>
+                                <span id="visible" class="showhide" onclick="showHide()">Show</span>
                             </label>
 
 
@@ -111,5 +111,15 @@
     </div>
 
 </body>
+<script>
+    function showHide() {
+        let isShowHide = document.getElementById('visible')
+        let loginadminPass = document.querySelector('#password')
+        const type = loginadminPass.getAttribute('type') === 'password' ? 'text' : 'password'
+        loginadminPass.setAttribute('type', type)
 
+        const toggleTxt = isShowHide.textContent === 'Show' ? 'Hide' : 'Show'
+        isShowHide.textContent = toggleTxt
+    }
+</script>
 </html>
