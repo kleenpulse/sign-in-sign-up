@@ -156,6 +156,7 @@ a {
   width: 100%;
   pointer-events: all;
   position: fixed;
+  z-index: 999999;
 }
 .navbar .navbar-nav {
   display: flex;
@@ -358,7 +359,6 @@ header p {
 }
 
 .first-half {
-  background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/macbook.jpg);
   font-family: "work sans", sans-serif;
   background-attachment: fixed;
   background-size: contain;
@@ -383,12 +383,21 @@ header p {
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
+  padding-left: 0;
   height: 100%;
+  width: 100%;
+}
+.first-half .confirst canva {
+  position: relative;
+  z-index: -1;
+  max-width: 200px !important;
 }
 .first-half .confirst .logocon {
   position: absolute;
+  z-index: 2;
   top: 10vh;
   left: 4rem;
+  pointer-events: none;
 }
 .first-half .confirst .logocon .ventalogo img {
   width: var(--logo-size);
@@ -396,6 +405,9 @@ header p {
 .first-half .confirst .sayhello {
   text-align: center;
   transition: var(--transi);
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
 }
 .first-half .confirst .sayhello h2 {
   margin-bottom: 2rem;
@@ -421,6 +433,9 @@ header p {
   overflow-y: auto;
   padding-top: 3rem;
   transition: var(--transi);
+  background: var(--bg);
+  position: relative;
+  z-index: 2;
 }
 @media (min-width: 1800px) {
   .second-half {
@@ -705,10 +720,6 @@ label[for=passconfirm] {
   content: "✖";
 }
 
-.admin {
-  background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/adminlogin.png);
-}
-
 .adminhead {
   font-size: clamp(2rem, 6vw, 3rem);
   color: var(--grey6);
@@ -734,17 +745,6 @@ label[for=passconfirm] {
   color: var(--grey4);
   font-size: 1.5vw;
   transition: var(--transi);
-}
-
-.password {
-  background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/forgotpass.png);
-  background-position: -100px;
-}
-@media (max-width: 980px) {
-  .password {
-    background-attachment: fixed;
-    background-size: cover;
-  }
 }
 
 .forgotpasshead {
@@ -845,6 +845,7 @@ input {
 .first-half .confirst .first-half-foo {
   position: absolute;
   bottom: 2rem;
+  z-index: 2;
 }
 .first-half .confirst .first-half-foo ul {
   display: flex;

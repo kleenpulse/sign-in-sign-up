@@ -1,13 +1,4 @@
-.password {
-    background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/forgotpass.png);
-    background-position: -100px;
 
-
-    @media (max-width:980px) {
-        background-attachment: fixed;
-        background-size: cover;
-    }
-}
 
 
 .forgotpasshead {

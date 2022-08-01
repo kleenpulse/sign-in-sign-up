@@ -5,7 +5,6 @@
     width: 100% !important;
     overflow: hidden;
     user-select: none;
-    // background: #ffffff;
     //    margin-top: 2rem;
 }
 
@@ -14,8 +13,7 @@
 }
 
 .first-half {
-    // background: linear-gradient( #000, #000);
-    background-image: linear-gradient(var(--overlay), var(--overlay)), url(../images/macbook.jpg);
+
     font-family: 'work sans', sans-serif;
     // background-blend-mode: overlay;
     background-attachment: fixed;
@@ -35,19 +33,33 @@
 
 
     .confirst {
+
+        // pointer-events: none;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 0 2rem;
+        padding-left: 0;
         // padding-top: 20rem;
         height: 100%;
+        width: 100%;
+
+        canva {
+            position: relative;
+            z-index: -1;
+            max-width: 200px !important;
+
+        }
+
         // backdrop-filter: blur(10px);
 
         .logocon {
             position: absolute;
+            z-index: 2;
             top: calc(100vh - 90vh);
             left: 4rem;
+            pointer-events: none;
 
 
             .ventalogo {
@@ -62,6 +74,10 @@
         .sayhello {
             text-align: center;
             transition: var(--transi);
+            position: relative;
+            z-index: 2;
+            pointer-events: none;
+            // width: 100%;
 
             h2 {
                 margin-bottom: 2rem;
@@ -93,6 +109,10 @@
     overflow-y: auto;
     padding-top: 3rem;
     transition: var(--transi);
+    background: var(--bg);
+    position: relative;
+    z-index: 2;
+
 
     @media (min-width:1800px) {
         flex: 2.4;
@@ -125,6 +145,7 @@
     }
 
     .consecond {
+
         padding: 0 2rem;
         display: flex;
         flex-direction: column;

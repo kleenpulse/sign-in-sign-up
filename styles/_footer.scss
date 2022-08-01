@@ -16,6 +16,7 @@
         .first-half-foo{
             position: absolute;
             bottom: 2rem;
+            z-index: 2;
 
             ul{
                 display: flex;

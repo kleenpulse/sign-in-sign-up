@@ -110,6 +110,7 @@ a {
     width: 100%;
     pointer-events: all;
     position: fixed;
+    z-index: 999999;
     // margin-bottom: 4rem;
 
     .navbar-nav {
