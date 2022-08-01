@@ -258,9 +258,29 @@
 
     }
 }
-
+.dark .button{
+    box-shadow: none !important;
+    box-shadow: inset .3rem .2rem .4rem rgb(61, 63, 63),
+        inset -.2rem -.2rem .8rem rgb(0, 0, 0) !important;
+    transition: var(--transi);
+    span{
+        color: var(--text);
+    }
+}
 // =====FORM=====
-
+.dark form input{
+    color: var(--white);
+    box-shadow: none !important;
+    box-shadow: inset .3rem .2rem .4rem rgb(61, 63, 63),
+            inset -.2rem -.2rem .8rem rgb(0, 0, 0) !important;
+        transition: var(--transi);
+}
+.dark .submit {
+    box-shadow: none !important;
+    box-shadow:  .3rem .2rem .4rem rgb(6, 6, 6),
+         -.2rem -.2rem .8rem rgb(57, 56, 56) !important;
+    transition: var(--transi);
+}
 .form {
     display: flex;
     justify-content: center;
