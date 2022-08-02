@@ -1,4 +1,16 @@
+// play lofi
+document.addEventListener('DOMContentLoaded',playLofi)
 
+function playLofi(){
+    audioEl = document.createElement('audio')
+    document.documentElement.appendChild(audioEl)
+    audioEl.setAttribute('src', '../audio/lofi.mp3')
+    setTimeout(()=>{
+        audioEl.play()
+
+    },2000)
+    audioEl.loop = true
+}
 
 // ====Grab themes btn====
 const darkBtn = document.querySelector('#dark')
@@ -204,7 +216,3 @@ function validatePassword() {
     passConfirmed.setAttribute('pattern', newPasswordAdminChar)
 }
 
-// play lofi
-
-audioEl = document.createElement('audio')
-audioEl.setAttribute('src', '../audio/lofi.mp3')
