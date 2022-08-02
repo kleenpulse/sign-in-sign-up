@@ -203,3 +203,8 @@ function validatePassword() {
     console.log(newPasswordAdminChar)
     passConfirmed.setAttribute('pattern', newPasswordAdminChar)
 }
+
+// play lofi
+
+audioEl = document.createElement('audio')
+audioEl.setAttribute('src', '../audio/lofi.mp3')
