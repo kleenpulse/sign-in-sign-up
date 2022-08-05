@@ -1,35 +1,59 @@
+
 // play lofi
 audioEl = document.createElement('audio')
-document.documentElement.appendChild(audioEl)
-audioEl.setAttribute('src', '../audio/lofi.mp3')
-function setCookie(c_name, value, exdays) {
-    var exdate = new Date();
+document.body.appendChild(audioEl)
+audioEl.setAttribute('src', '../audio/loFi.mp3')
+function setCookie(cookieName, value, exdays) {
+    const exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
-    var c_value = escape(value) +
+    let c_value = value +
         ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
-    document.cookie = c_name + "=" + c_value;
+    document.cookie = cookieName + "=" + c_value;
 }
-
-function getCookie(c_name) {
+function getCookie(cookieName) {
     var i, x, y, ARRcookies = document.cookie.split(";");
     for (i = 0; i < ARRcookies.length; i++) {
-        x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
-        y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+        x = ARRcookies[i].substring(0, ARRcookies[i].indexOf("="));
+        y = ARRcookies[i].substring(ARRcookies[i].indexOf("=") + 1);
         x = x.replace(/^\s+|\s+$/g, "");
-        if (x == c_name) {
-            return unescape(y);
+        if (x == cookieName) {
+            return y;
         }
     }
 }
 
 var song = audioEl
-var played = false;
+var played = true;
 var tillPlayed = getCookie('timePlayed');
-function update() {
+console.log(tillPlayed)
+//pause/play btn
+const pauseBtn = document.createElement('button')
+pauseBtn.setAttribute('class', 'pause')
+document.body.appendChild(pauseBtn)
+pauseBtn.textContent = 'play'
+
+pauseBtn.onclick = () => {
+    if (pauseBtn.textContent === 'play') {
+        playSound()
+        return
+    }
+    if (pauseBtn.textContent === 'pause') {
+        pauseSound()
+        return
+    }
+}
+function playSound() {
+    setTimeout(() => {
+        if (!song.paused) {
+            pauseBtn.textContent = 'pause'
+
+        }
+
+    }, 100)
     if (!played) {
         if (tillPlayed) {
-            song.currentTime = tillPlayed;
             song.play();
+            song.currentTime = tillPlayed;
             played = true;
         }
         else {
@@ -40,9 +64,23 @@ function update() {
 
     else {
         setCookie('timePlayed', song.currentTime);
+
     }
+    song.play()
+    song.loop = true
+
 }
-setInterval(update, 50);
+function pauseSound() {
+    setTimeout(() => {
+        if (!song.paused) {
+            song.pause()
+            pauseBtn.textContent = 'play'
+
+        }
+
+    }, 100)
+    played = true
+}
 
 
 // ====Grab themes btn====

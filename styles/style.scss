@@ -76,6 +76,22 @@ body {
     }
 }
 
+.pause{
+    background: #000;
+    color: #fff;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.738);
+    padding:5px 10px;
+    border-radius: 12px;
+    position: absolute;
+    z-index: 9;
+    bottom: 10%;
+    text-transform: uppercase;
+    left: 1rem;
+    cursor: pointer;
+}
+.light .pause{
+    box-shadow: 0 0 50px rgba(23, 22, 22, 0.738);
+}
 canvas {
     height: 100vh;
     width: 100%;
