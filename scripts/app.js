@@ -2,7 +2,7 @@
 // play lofi
 var audioEl = document.createElement('audio')
 document.body.appendChild(audioEl)
-audioEl.setAttribute('src', '../liquid.mp3')
+audioEl.setAttribute('src', '../vxrcel.mp3')
 function setCookie(cookieName, value, exdays) {
     const exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
@@ -30,10 +30,10 @@ console.log(tillPlayed)
 const pauseBtn = document.createElement('button')
 pauseBtn.setAttribute('class', 'pause')
 document.body.appendChild(pauseBtn)
-pauseBtn.textContent = 'play'
+pauseBtn.textContent = 'play lofi'
 
 pauseBtn.onclick = () => {
-    if (pauseBtn.textContent === 'play') {
+    if (pauseBtn.textContent === 'play lofi') {
         playSound()
         return
     }
@@ -74,7 +74,7 @@ function pauseSound() {
     setTimeout(() => {
         if (!song.paused) {
             song.pause()
-            pauseBtn.textContent = 'play'
+            pauseBtn.textContent = 'play lofi'
 
         }
 
@@ -163,7 +163,7 @@ $(document).keyup((e) => {
 
 // show or hide password
 isVisible.onclick = function () {
-    alert('ssfdfd')
+
     const type = newPasswordAdmin.getAttribute('type') === 'password' ? 'text' : 'password'
     newPasswordAdmin.setAttribute('type', type)
     const toggleTxt = isVisible.textContent === 'Show' ? 'Hide' : 'Show'
@@ -212,11 +212,14 @@ isConfirmed.onclick = function () {
 
 newPasswordAdmin.onfocus = function () {
     messageDisplay.style.display = "block";
+    messageDisplay.style.animation = "showUp 1s ease forwards";
 
 }
 
 newPasswordAdmin.onblur = function () {
-    messageDisplay.style.display = "none";
+
+    messageDisplay.style.animation = "hideUp 1s ease forwards";
+    // messageDisplay.style.display = "none";
 
 
 }
