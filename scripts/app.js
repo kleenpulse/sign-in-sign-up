@@ -2,7 +2,7 @@
 // play lofi
 var audioEl = document.createElement('audio')
 document.body.appendChild(audioEl)
-audioEl.setAttribute('src', '../vxrcel.mp3')
+audioEl.setAttribute('src', 'vxrcel.mp3')
 function setCookie(cookieName, value, exdays) {
     const exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
