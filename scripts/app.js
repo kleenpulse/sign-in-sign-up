@@ -1,8 +1,8 @@
 
 // play lofi
-audioEl = document.createElement('audio')
+var audioEl = document.createElement('audio')
 document.body.appendChild(audioEl)
-audioEl.setAttribute('src', '../audio/liquid.mp3')
+audioEl.setAttribute('src', '../liquid.mp3')
 function setCookie(cookieName, value, exdays) {
     const exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
